@@ -6,8 +6,9 @@ from setuptools import setup, find_packages
 def docs_read(fname):
     return open(os.path.join(os.path.dirname(__file__), 'docs', fname)).read()
 
+
 def version_read():
-    settings_file = open(os.path.join(os.path.dirname(__file__), 'lib', 'font-ttfa', 'settings.py')).read()
+    settings_file = open(os.path.join(os.path.dirname(__file__), 'lib', 'fontttfa', 'settings.py')).read()
     major_regex = """major_version\s*?=\s*?["']{1}(\d+)["']{1}"""
     minor_regex = """minor_version\s*?=\s*?["']{1}(\d+)["']{1}"""
     patch_regex = """patch_version\s*?=\s*?["']{1}(\d+)["']{1}"""
@@ -29,22 +30,22 @@ def version_read():
 setup(
     name='font-ttfa',
     version=version_read(),
-    description='',
+    description='A command line tool that reads and reports the ttfautohint ttfa table in a font',
     long_description=(docs_read('README.rst')),
-    url='',
+    url='https://github.com/source-foundry/font-ttfa',
     license='MIT license',
     author='Christopher Simpkins',
-    author_email='',
+    author_email='chris@sourcefoundry.org',
     platforms=['any'],
     entry_points = {
         'console_scripts': [
-            'font-ttfa = font-ttfa.app:main'
+            'font-ttfa = fontttfa.app:main'
         ],
     },
     packages=find_packages("lib"),
     package_dir={'': 'lib'},
-    install_requires=['Naked'],
-    keywords='',
+    install_requires=['Naked', 'fonttools'],
+    keywords='font,fonts,typeface,typography,type,type design,type development,hinting,ttf,TrueType,instructions,ttfautohint,ttfa',
     include_package_data=True,
     classifiers=[],
 )
