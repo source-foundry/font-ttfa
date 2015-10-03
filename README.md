@@ -30,3 +30,6 @@ $ python setup.py install
 $ font-ttfa [font path 1] [font path 2] [...font path x]
 ```
 
+## License
+
+font-ttfa is licensed under the MIT license.  The full text of the license is available [here](https://github.com/source-foundry/font-ttfa/blob/master/docs/LICENSE).
