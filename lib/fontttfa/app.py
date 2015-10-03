@@ -70,7 +70,7 @@ def main():
                     else:
                         stderr(
                             "[font-ttfa]: Unable to detect a TTFA table in '" + fontpath +
-                            "'.  Please confirm that ttfautohint has been used on this file.")
+                            "'.  Please confirm that ttfautohint has been used on this file and that the TTFA table was added.")
                 else:
                     stderr("[font-ttfa]: The file '" + fontpath + "' does not appear to be a TrueType font file.")
             else:

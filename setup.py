@@ -30,14 +30,14 @@ def version_read():
 setup(
     name='font-ttfa',
     version=version_read(),
-    description='A command line tool that reads and reports the ttfautohint TTFA font table',
+    description='A command line TTFA table reporting tool for fonts hinted with ttfautohint',
     long_description=(docs_read('README.rst')),
     url='https://github.com/source-foundry/font-ttfa',
     license='MIT license',
     author='Christopher Simpkins',
     author_email='chris@sourcefoundry.org',
     platforms=['any'],
-    entry_points = {
+    entry_points={
         'console_scripts': [
             'font-ttfa = fontttfa.app:main'
         ],
