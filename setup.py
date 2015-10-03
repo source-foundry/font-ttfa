@@ -47,5 +47,17 @@ setup(
     install_requires=['Naked', 'fonttools'],
     keywords='font,fonts,typeface,typography,type,type design,type development,hinting,ttf,TrueType,instructions,ttfautohint,ttfa',
     include_package_data=True,
-    classifiers=[],
+    classifiers=[
+        'Intended Audience :: End Users/Desktop',
+        'Development Status :: 4 - Beta',
+        'Natural Language :: English',
+        'License :: OSI Approved :: MIT License',
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 3',
+        'Operating System :: MacOS :: MacOS X',
+        'Operating System :: POSIX',
+        'Operating System :: Unix',
+        'Operating System :: Microsoft :: Windows'
+    ],
 )
