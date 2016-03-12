@@ -3,7 +3,7 @@
 ## What is font-ttfa?
 
 
-font-ttfa is a command line executable that provides a report of font hinting settings from the TTFA table of fonts that were hinted with [ttfautohint](http://www.freetype.org/ttfautohint/).  It is built with the fantastic FontTools library.
+font-ttfa is a command line executable that provides a standard output stream report of font hinting settings from the TTFA table of fonts that were hinted with [ttfautohint](http://www.freetype.org/ttfautohint/).  It is built with the fantastic FontTools library.
 
 
 ## Install
