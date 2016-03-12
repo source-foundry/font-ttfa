@@ -44,7 +44,7 @@ setup(
     },
     packages=find_packages("lib"),
     package_dir={'': 'lib'},
-    install_requires=['Naked', 'fonttools'],
+    install_requires=['commandlines', 'Naked', 'fonttools'],
     keywords='font,fonts,typeface,typography,type,type design,type development,hinting,ttf,TrueType,instructions,ttfautohint,ttfa',
     include_package_data=True,
     classifiers=[
