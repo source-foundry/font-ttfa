@@ -3,7 +3,7 @@
 
 # ------------------------------------------------------------------------------
 # font-ttfa
-# Copyright 2015 Christopher Simpkins
+# Copyright 2016 Christopher Simpkins
 # MIT license
 # ------------------------------------------------------------------------------
 
@@ -11,37 +11,30 @@
 # Application start
 def main():
     import sys
-    from Naked.commandline import Command
+    from commandlines import Command
     from Naked.toolshed.system import stderr, file_exists
     from fontTools import ttLib
 
-    # ------------------------------------------------------------------------------------------
-    # [ Instantiate command line object ]
-    #   used for all subsequent conditional logic in the CLI application
-    # ------------------------------------------------------------------------------------------
-    c = Command(sys.argv[0], sys.argv[1:])
-    # ------------------------------------------------------------------------------------------
-    # [ Command Suite Validation ] - early validation of appropriate command syntax
-    # Test that user entered at least one argument to the executable, print usage if not
-    # ------------------------------------------------------------------------------------------
-    if not c.command_suite_validates():
+    # Instantiate commandlines Command object
+    c = Command()
+
+    # Command line argument validation testing
+    if c.does_not_validate_missing_args():
         from fontttfa.settings import usage as fontttfa_usage
-        print(fontttfa_usage)
+        stderr("ERROR: missing arguments\n")
+        stderr(fontttfa_usage)
         sys.exit(1)
-    # ------------------------------------------------------------------------------------------
-    # [ NAKED FRAMEWORK COMMANDS ]
-    # Naked framework provides default help, usage, and version commands for all applications
-    #   --> settings for user messages are assigned in the lib/font-ttfa/settings.py file
-    # ------------------------------------------------------------------------------------------
-    if c.help():  # User requested font-ttfa help information
+
+    # Tests for help, usage, and version requests
+    if c.is_help_request():  # User requested font-ttfa help information
         from fontttfa.settings import help as fontttfa_help
         print(fontttfa_help)
         sys.exit(0)
-    elif c.usage():  # User requested font-ttfa usage information
+    elif c.is_usage_request():  # User requested font-ttfa usage information
         from fontttfa.settings import usage as fontttfa_usage
         print(fontttfa_usage)
         sys.exit(0)
-    elif c.version():  # User requested font-ttfa version information
+    elif c.is_version_request():  # User requested font-ttfa version information
         from fontttfa.settings import app_name, major_version, minor_version, patch_version
         version_display_string = app_name + ' ' + major_version + '.' + minor_version + '.' + patch_version
         print(version_display_string)
@@ -52,7 +45,7 @@ def main():
     # ------------------------------------------------------------------------------------------
 
     try:
-        for fontpath in c.argv:
+        for fontpath in c.arguments:
             if file_exists(fontpath):
                 if fontpath.endswith('.ttf'):
                     tt = ttLib.TTFont(fontpath)
@@ -62,6 +55,7 @@ def main():
                             outline_string = "=" * length_fontpath
                         else:
                             outline_string = "=" * 80
+                        print(" ")
                         print(outline_string)
                         print(fontpath)
                         print(outline_string)

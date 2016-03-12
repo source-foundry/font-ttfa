@@ -11,7 +11,7 @@ app_name = 'font-ttfa'
 # ------------------------------------------------------------------------------
 major_version = "0"
 minor_version = "9"
-patch_version = "0"
+patch_version = "1"
 
 # ------------------------------------------------------------------------------
 # Debug Flag (switch to False for production release code)
@@ -29,7 +29,7 @@ usage = 'Usage: font-ttfa [font path] <..font path 2>'
 help = """---------------------------------------------------------
  font-ttfa
  TTFA table reporting for fonts hinted with ttfautohint
- Copyright 2015 Christopher Simpkins
+ Copyright 2016 Christopher Simpkins
  MIT license
  Source: https://github.com/source-foundry/font-ttfa
 ---------------------------------------------------------
